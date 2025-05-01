@@ -5,7 +5,7 @@ def render_page_header():
     <style>
         /* Main background and text colors */
         .stApp {
-            background-color: #FFFFFF;
+            background-color: #BDDBEF;
             color: #262730;
         }
         
@@ -25,6 +25,7 @@ def render_page_header():
         .stMarkdown h3 {
             color: #000000 !important;
         }
+        
         
         /* Chat message containers */
         .stChatMessage {
