@@ -78,11 +78,10 @@ def user_login_section():
 
 def file_upload_section():
     """Render file upload section"""
-    st.markdown("### 📄 Upload Document")
     uploaded_file = st.file_uploader(
         "Upload a document to chat with (PDF, TXT, DOC)", 
         type=["pdf", "txt", "doc", "docx"],
-        help=""
+        help="Upload a document and ask questions about it! 📚"
     )
     
     if uploaded_file:
