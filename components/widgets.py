@@ -82,7 +82,7 @@ def file_upload_section():
     uploaded_file = st.file_uploader(
         "Upload a document to chat with (PDF, TXT, DOC)", 
         type=["pdf", "txt", "doc", "docx"],
-        help="Upload a document and ask questions about it! 📚"
+        help=""
     )
     
     if uploaded_file:
