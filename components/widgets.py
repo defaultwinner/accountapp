@@ -9,6 +9,20 @@ def render_page_header():
             color: #262730;
         }
         
+        /* Header styling */
+        header {
+            color: #FFFFFF !important;
+        }
+        
+        .stMarkdown h1, .stMarkdown h2, .stMarkdown h3 {
+            color: #FFFFFF !important;
+        }
+        
+        /* Make regular Markdown text black */
+        .stMarkdown p {
+            color: #000000 !important;
+        }
+        
         /* Chat message containers */
         .stChatMessage {
             background-color: #F8F9FA;
