@@ -22,6 +22,9 @@ def render_page_header():
         .stMarkdown p {
             color: #000000 !important;
         }
+        .stMarkdown h3 {
+            color: #000000 !important;
+        }
         
         /* Chat message containers */
         .stChatMessage {
