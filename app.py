@@ -9,7 +9,7 @@ render_page_header()
 # Choose your LLM provider
 LLM_PROVIDER = "gemini"  # or "openai"
 
-st.title("💬 Chat with Documents using AI")
+st.title("💬 Your AI Accountant")
 
 # Get user email
 user_email = user_login_section()
