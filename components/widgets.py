@@ -33,6 +33,9 @@ def render_page_header():
             border-radius: 10px;
             margin: 10px 0;
         }
+        .stChatMessage li {
+                color: #000000 !important;
+        }
         
         /* User input box */
         .stTextInput input {
