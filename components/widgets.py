@@ -82,9 +82,9 @@ def user_login_section():
 def file_upload_section():
     """Render file upload section"""
     uploaded_file = st.file_uploader(
-        "Upload a document to chat with (PDF, TXT, DOC)", 
+        "Upload your financials, let's uncover savings! 💰", 
         type=["pdf", "txt", "doc", "docx"],
-        help="Upload a document and ask questions about it! 📚"
+        help=""
     )
     
     if uploaded_file:
