@@ -103,7 +103,7 @@ class LLMConnect:
                 response = self.client.chat.completions.create(
                 model="grok-beta",  # or "x-ai/grok-3-beta" for Grok 3
                 messages=messages,
-                max_tokens=1000,
+                max_tokens=5000,
                 temperature=0.7
             )
                 response_text = response.choices[0].message.content
