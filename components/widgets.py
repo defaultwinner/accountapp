@@ -37,6 +37,20 @@ def render_page_header():
                 color: #000000 !important;
         }
         
+        .stFileUploader section {
+            background-color: #F8F9FA !important;
+            border-radius: 8px;
+                color: #000000 !important;
+        }
+        .stFileUploader section small {
+                color: #000000 !important;
+        }
+        .stFileUploader section button {
+            # background-color: #F8F9FA !important;
+            # border-radius: 8px;
+            color: #FFFFFF !important;
+        }
+        
         /* User input box */
         .stTextInput input {
             border: 1px solid #E0E3E7;
@@ -82,7 +96,7 @@ def user_login_section():
 def file_upload_section():
     """Render file upload section"""
     uploaded_file = st.file_uploader(
-        "Upload your financials, let's uncover savings! 💰", 
+        "", 
         type=["pdf", "txt", "doc", "docx"],
         help=""
     )

@@ -11,33 +11,43 @@ LLM_PROVIDER = "gemini"
 
 st.title("💬 Your AI Accountant")
 
-# Get user email
-user_email = user_login_section()
-
-# File upload section
-uploaded_file = file_upload_section()
-
 # Initialize LLM client
 if "llm_client" not in st.session_state:
     st.session_state.llm_client = get_llm_client(provider=LLM_PROVIDER)
 
-# Initialize chat history
+# Initialize chat history and show welcome message
 if "messages" not in st.session_state:
-    welcome_msg = """👋 Welcome! I'm your AI Accountant. I can help you with:
-* Accounting principles and concepts
-* Financial statements analysis
-* Bookkeeping questions
-* Tax-related queries
-* Business financial planning
-* Audit-related topics
+    welcome_msg = """Trending Questions in Dubai:
+- Time left to avoid AED 10,000 penalty?
+- Key compliance tasks to avoid fines in 2025?
+- How do I prep for investor due diligence?
+- Optimise tax between London & Dubai?
+- Ways to boost EBITDA in FY2025?
+- Want a London Fintech CFO's POV on exit strategy?
 
-Please upload relevant documents or ask your accounting questions!"""
+Upload documents or ask accounting questions below!"""
     st.session_state.messages = [{"role": "assistant", "content": welcome_msg}]
 
-# Display chat messages from history
-for message in st.session_state.messages:
-    with st.chat_message(message["role"]):
-        st.markdown(message["content"])
+    # Display welcome message
+    with st.chat_message("assistant"):
+        st.markdown(welcome_msg)
+
+# File uploader below welcome message
+uploaded_file = file_upload_section()
+# Display file upload section
+if uploaded_file:
+    st.session_state.messages.append({"role": "user", "content": f"Uploaded file: {uploaded_file.name}"})
+    with st.chat_message("user"):
+        st.markdown(f"Uploaded file: {uploaded_file.name}")
+
+if uploaded_file:
+    st.info(f"""📄 Processing: {uploaded_file.name} ({uploaded_file.size/1024:.1f} KB)""")
+
+# Display rest of chat history
+if len(st.session_state.messages) > 1:  # Skip welcome message
+    for message in st.session_state.messages[1:]:
+        with st.chat_message(message["role"]):
+            st.markdown(message["content"])
 
 # Accept user input
 if prompt := st.chat_input("Ask your accounting question..."):
@@ -59,7 +69,7 @@ if prompt := st.chat_input("Ask your accounting question..."):
             response = st.session_state.llm_client.generate_response(
                 messages=[{"role": "user", "content": formatted_prompt}],
                 uploaded_file=uploaded_file,
-                user_email=user_email
+                user_email=None  # Removed user_email as it's no longer used
             )
             
             # Check if response indicates non-accounting question
