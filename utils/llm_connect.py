@@ -35,6 +35,12 @@ class LLMConnect:
             self.client = genai.GenerativeModel('gemini-2.0-flash')
         elif self.config.provider.lower() == "openai":
             self.client = OpenAI(api_key=self.config.api_key)
+        elif self.config.provider.lower() == "grok":
+            print("Using Grok API")
+            self.client = OpenAI(
+                api_key=os.getenv("XAI_API_KEY"),
+                base_url="https://api.x.ai/v1"
+            )
         else:
             raise ValueError(f"Unsupported LLM provider: {self.config.provider}")
 
@@ -93,7 +99,16 @@ class LLMConnect:
                     temperature=0.7
                 )
                 response_text = response.choices[0].message.content
-
+            elif self.config.provider.lower() == "grok":
+                response = self.client.chat.completions.create(
+                model="grok-beta",  # or "x-ai/grok-3-beta" for Grok 3
+                messages=messages,
+                max_tokens=1000,
+                temperature=0.7
+            )
+                response_text = response.choices[0].message.content
+            else:
+                raise ValueError(f"Unsupported LLM provider: {self.config.provider}")
             # Save to database if user_email is provided
             try:
                 if user_email and self.db.is_connected:
@@ -128,6 +143,9 @@ def get_llm_client(provider: str = "openai") -> LLMConnect:
             api_key=api_key,
             model="gpt-3.5-turbo"
         )
+    elif provider.lower() == "grok":
+        api_key = os.getenv("GROK_API_KEY")
+        config = LLMConfig(provider="grok", api_key=api_key)
     else:
         raise ValueError(f"Unsupported provider: {provider}")
         

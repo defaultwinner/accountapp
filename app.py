@@ -7,7 +7,7 @@ from components.widgets import render_page_header, user_login_section, file_uplo
 render_page_header()
 
 # Choose your LLM provider
-LLM_PROVIDER = "gemini"
+LLM_PROVIDER = "grok"
 
 st.title("💼 Accountant Busy? Ask Us Instead", anchor=False)
 
