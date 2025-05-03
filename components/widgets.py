@@ -14,6 +14,11 @@ def render_page_header():
             color: #FFFFFF !important;
         }
         
+        .stApp h1 {
+            font-size: 2rem;
+            font-weight: 700;
+        }
+        
         .stMarkdown h1, .stMarkdown h2, .stMarkdown h3 {
             color: #FFFFFF !important;
         }
@@ -98,7 +103,8 @@ def file_upload_section():
     uploaded_file = st.file_uploader(
         "", 
         type=["pdf", "txt", "doc", "docx"],
-        help=""
+        help=None,
+        label_visibility="collapsed",
     )
     
     if uploaded_file:
