@@ -82,6 +82,12 @@ def render_page_header():
             color: #1E88E5;
             border-radius: 8px;
         }
+
+        .stBottom .st-emotion-cache-hzygls {
+            background-color: #BDDBEF !important;
+        }
+                
+        }
     </style>
     """, unsafe_allow_html=True)
 
