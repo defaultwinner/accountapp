@@ -9,7 +9,7 @@ render_page_header()
 # Choose your LLM provider
 LLM_PROVIDER = "gemini"
 
-st.title("💼 Busy Accountant? Ask Us Instead", anchor=False)
+st.title("💼 Accountant Busy? Ask Us Instead", anchor=False)
 
 # Initialize LLM client
 if "llm_client" not in st.session_state:
