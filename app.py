@@ -8,6 +8,7 @@ render_page_header()
 
 # Choose your LLM provider
 LLM_PROVIDER = "grok"
+# LLM_PROVIDER = "gemini"
 
 st.title("💼 Accountant Busy? Ask Us Instead", anchor=False)
 
@@ -54,7 +55,7 @@ if prompt := st.chat_input("Ask your accounting question..."):
     # Add context to ensure accounting-focused responses
     accounting_context = """You are an AI Accountant. Only answer questions related to accounting, 
     finance, taxation, auditing, or business financial matters. If the question is not related to 
-    these topics, politely decline to answer and remind the user of your accounting focus."""
+    these topics, politely decline to answer and remind the user of your accounting focus. """
     
     formatted_prompt = f"{accounting_context}\n\nUser question: {prompt}"
     

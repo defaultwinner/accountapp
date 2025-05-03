@@ -79,6 +79,8 @@ class LLMConnect:
             original_query = messages[-1]['content']
             
             if uploaded_file:
+                print(f"Processing uploaded file: {uploaded_file.name}")
+                # Process the uploaded file and extract content
                 file_content = self._process_file(uploaded_file)
                 context = f"Context from file '{uploaded_file.name}':\n{file_content}\n\nQuestion: {original_query}{prompt_suffix}"
                 messages[-1]['content'] = context
