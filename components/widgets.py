@@ -107,7 +107,7 @@ def user_login_section():
 def file_upload_section():
     """Render file upload section"""
     uploaded_file = st.file_uploader(
-        "", 
+        "Upload your accounting documents (optional)", 
         type=["pdf", "txt", "doc", "docx"],
         help=None,
         label_visibility="collapsed",
