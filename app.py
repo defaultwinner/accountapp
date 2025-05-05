@@ -82,7 +82,6 @@ if prompt := st.chat_input("Ask your accounting question or enter your email to 
     
     # Process prompt if email is verified
     if st.session_state.email_verified:
-        print("Email verified, processing prompt...")
         # Add context to ensure accounting-focused responses
         accounting_context = """You are an AI Accountant. Only answer questions related to accounting, 
         finance, taxation, auditing, or business financial matters. If the question is not related to 
