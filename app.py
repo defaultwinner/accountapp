@@ -47,9 +47,6 @@ if uploaded_file:
     with st.chat_message("user"):
         st.markdown(f"Uploaded file: {uploaded_file.name}")
 
-if uploaded_file:
-    st.info(f"""📄 Processing: {uploaded_file.name} ({uploaded_file.size/1024:.1f} KB)""")
-
 # Display rest of chat history
 if len(st.session_state.messages) > 1:  # Skip welcome message
     for message in st.session_state.messages[1:]:
