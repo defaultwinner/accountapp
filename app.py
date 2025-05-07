@@ -44,8 +44,8 @@ uploaded_file = file_upload_section()
 # Display file upload section
 if uploaded_file:
     st.session_state.messages.append({"role": "user", "content": f"Uploaded file: {uploaded_file.name}"})
-    with st.chat_message("user"):
-        st.markdown(f"Uploaded file: {uploaded_file.name}")
+    # with st.chat_message("user"):
+    #     st.markdown(f"Uploaded file: {uploaded_file.name}")
 
 # Display rest of chat history
 if len(st.session_state.messages) > 1:  # Skip welcome message
