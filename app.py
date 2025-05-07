@@ -10,7 +10,7 @@ render_page_header()
 LLM_PROVIDER = "grok"
 # LLM_PROVIDER = "gemini"
 
-st.title("💼 Accountant Busy? Ask Us Instead", anchor=False)
+st.title("💼 Introducing fiscAI. Ask anything. Anytime", anchor=False)
 
 # Initialize LLM client
 if "llm_client" not in st.session_state:
